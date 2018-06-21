@@ -7,7 +7,8 @@ function reDraw() {
   console.log(width, height);
   var projection = d3.geo.orthographic()
     .translate([width / 2, height / 2])
-    .scale(width > height ? (width / height) * 100 + 20 : (height / width) * 100 + 20)
+    // .scale(width > height ? height : width)
+    .scale(width > height ? 400 - (width / height) * 100 : 400 - (height / width) * 100)
     .clipAngle(90)
     .precision(0.6);
 
