@@ -1,0 +1,18 @@
+h1 {
+  position: absolute;
+  top: 50%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Make the chart container fill the page using CSS. */
+#chart {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
