@@ -4,13 +4,13 @@ var canvas = d3.select(chartDiv).append("canvas");
 function reDraw() {
   var width = chartDiv.clientWidth;
   var height = chartDiv.clientHeight;
-  console.log(width, height);
+
   var projection = d3.geo.orthographic()
     .translate([width / 2, height / 2])
     // .scale(width > height ? height : width)
-    .scale(width > height ? 400 - (width / height) * 100 : 400 - (height / width) * 100)
+    .scale(width > height ? 500 - (width / height) * 100 : 500 - (height / width) * 100)
     .clipAngle(90)
-    .precision(0.6);
+    .precision(1);
 
   canvas
     .attr("width", width)
@@ -42,7 +42,7 @@ function reDraw() {
       }),
       i = -1,
       n = names.length;
-      console.log(names);
+
     countries = countries.filter(function (d) {
       return names.some(function (n) {
         if (d.id == n.id) return d.name = n.name;
