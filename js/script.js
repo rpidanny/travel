@@ -42,7 +42,7 @@ function reDraw() {
       }),
       i = -1,
       n = names.length;
-
+      console.log(names);
     countries = countries.filter(function (d) {
       return names.some(function (n) {
         if (d.id == n.id) return d.name = n.name;
