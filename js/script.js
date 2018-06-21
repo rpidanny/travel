@@ -2,12 +2,12 @@ var chartDiv = document.getElementById("chart");
 var canvas = d3.select(chartDiv).append("canvas");
 
 function reDraw() {
-  var width = chartDiv.clientWidth - 100 ;
+  var width = chartDiv.clientWidth;
   var height = chartDiv.clientHeight;
   console.log(width, height);
   var projection = d3.geo.orthographic()
     .translate([width / 2, height / 2])
-    .scale(width / 3 - 20)
+    .scale(width > height ? (width / height) * 100 : (height / width) * 100)
     .clipAngle(90)
     .precision(0.6);
 
@@ -40,7 +40,7 @@ function reDraw() {
         return a !== b;
       }),
       i = -1,
-      n = countries.length;
+      n = names.length;
 
     countries = countries.filter(function (d) {
       return names.some(function (n) {
@@ -62,10 +62,11 @@ function reDraw() {
           return function (t) {
             projection.rotate(r(t));
             c.clearRect(0, 0, width, height);
-            c.fillStyle = "#ccc", c.beginPath(), path(land), c.fill();
-            c.fillStyle = "#f00", c.beginPath(), path(countries[i]), c.fill();
-            c.strokeStyle = "#fff", c.lineWidth = .5, c.beginPath(), path(borders), c.stroke();
-            c.strokeStyle = "#000", c.lineWidth = 2, c.beginPath(), path(globe), c.stroke();
+            c.fillStyle = "#8cbed6", c.lineWidth = 2, c.beginPath(), path(globe), c.fill();
+            c.fillStyle = "#fee8c8", c.beginPath(), path(land), c.fill();
+            c.fillStyle = "#e6550d", c.beginPath(), path(countries[i]), c.fill();
+            c.strokeStyle = "#222", c.lineWidth = .5, c.beginPath(), path(borders), c.stroke();
+            c.strokeStyle = "#8cbed6", c.lineWidth = 2, c.beginPath(), path(globe), c.stroke();
           };
         })
         .transition()
