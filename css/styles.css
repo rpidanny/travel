@@ -17,13 +17,13 @@ h1 {
   padding: 0;
   color: #fff;
   text-align: center;
-  top: 40%;
+  top: 20%;
   left: 50%;
   -webkit-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
   /* text-transform: uppercase; */
-  font-size: 2.6em;
-  letter-spacing: 0.1em;
+  font-size: 3.4em;
+  /* letter-spacing: 0.1em; */
   z-index: 9;
   -webkit-text-stroke: 1px rgb(37, 36, 36);
   /* color: white; */
